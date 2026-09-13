@@ -43,6 +43,13 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Short commit tag
+        id: commit
+        shell: bash
+        env:
+          COMMIT_SHA: ${{ github.sha }}
+        run: printf 'tag=%s\n' "${COMMIT_SHA:0:8}" >> "$GITHUB_OUTPUT"
+
       - name: Image metadata
         id: meta
         uses: docker/metadata-action@v5
@@ -52,6 +59,7 @@ jobs:
           tags: |
             type=ref,event=branch
             type=sha,format=long
+            type=raw,value=${{ steps.commit.outputs.tag }}
             type=semver,pattern=v{{version}}
             type=semver,pattern=v{{major}}.{{minor}}
             type=raw,value=latest,enable=${{ github.ref_type == 'branch' && github.ref_name == github.event.repository.default_branch }}

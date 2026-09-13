@@ -10,9 +10,10 @@ in `OpenProjectX/bitmagnet`.
 ## Triggers and tags
 
 - Pushes to `main`, `master`, `dev`, or `develop` publish the branch tag and
-  `sha-<full commit SHA>`.
+  `sha-<full commit SHA>`, plus the first eight commit characters as a short tag
+  (for example, `ghcr.io/openprojectx/bitmagnet:a1b2c3d4`).
 - Builds of the repository's default branch also update `latest`.
-- Version tags such as `v0.10.2` publish `v0.10.2`, `v0.10`, and the commit tag.
+- Version tags such as `v0.10.2` publish `v0.10.2`, `v0.10`, and both commit tags.
   Prereleases receive their full version tag; they do not update `latest`.
 - **Actions → Publish OpenProjectX image → Run workflow** publishes the selected
   branch or version tag. The workflow must be present on the default branch
