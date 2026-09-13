@@ -83,6 +83,12 @@ Ordinary peer lookup requires a known hash. Bitmagnet instead uses `sample_infoh
 
 A sample is only a lead. The corresponding peers may be offline, unreachable, or unable to provide metadata. This is why “hashes discovered” and “torrents indexed” represent different stages.
 
+There is also a tracker-specific discovery exception: some HTTP trackers expose
+**full scrape**, returning tracked hashes and swarm counters without requiring
+a hash in the request. This does not return the torrent info dictionary, and
+Bitmagnet does not currently use it. See the
+[full-scrape guide and survey](06-tracker-lists.md).
+
 ## 6. What a magnet link contains
 
 A typical shape is:

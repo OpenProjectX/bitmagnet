@@ -1,0 +1,1214 @@
+{
+  "observed_at_utc": "2026-09-13T02:28:53.086448+00:00",
+  "input_urls": 148,
+  "protocol_counts": {
+    "udp": 73,
+    "http": 52,
+    "https": 22,
+    "wss": 1
+  },
+  "http_candidates": 74,
+  "status_counts": {
+    "http_error": 17,
+    "unconfirmed": 32,
+    "hashes_observed": 11,
+    "tracker_failure": 9,
+    "empty_files": 2,
+    "no_files_dictionary": 3
+  },
+  "method": "One GET without info_hash per mapped HTTP(S) endpoint; stop at first validated hash/statistics entry. No retries. Verified TLS; environment proxy settings apply.",
+  "limits": {
+    "workers": 6,
+    "socket_timeout_seconds": 6,
+    "read_budget_seconds": 12,
+    "wire_bytes_per_endpoint": 262144,
+    "decoded_bytes_per_endpoint": 1048576
+  },
+  "results": [
+    {
+      "scrape_url": "http://tracker.opentrackr.org:1337/scrape",
+      "status": "http_error",
+      "http_status": 402,
+      "detail": "HTTP Error 402: Payment Required",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 1.35,
+      "announce_urls": [
+        "http://tracker.opentrackr.org:1337/announce"
+      ]
+    },
+    {
+      "scrape_url": "https://tracker.zhuqiy.com:443/scrape",
+      "http_status": 200,
+      "final_url": "https://tracker.zhuqiy.com:443/scrape",
+      "status": "unconfirmed",
+      "detail": "response is not a bencoded dictionary",
+      "bytes_read": 651,
+      "decoded_bytes": 2049,
+      "elapsed_seconds": 0.98,
+      "announce_urls": [
+        "https://tracker.zhuqiy.com:443/announce"
+      ]
+    },
+    {
+      "scrape_url": "https://tracker.pmman.tech:443/scrape",
+      "status": "http_error",
+      "http_status": 404,
+      "detail": "HTTP Error 404: Not Found",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 1.05,
+      "announce_urls": [
+        "https://tracker.pmman.tech:443/announce"
+      ]
+    },
+    {
+      "scrape_url": "https://tracker.nekomi.cn:443/scrape",
+      "http_status": 200,
+      "final_url": "https://tracker.nekomi.cn:443/scrape",
+      "status": "hashes_observed",
+      "detail": "Validated one hash with scrape counters; stopped reading early",
+      "bytes_read": 1022,
+      "decoded_bytes": 1022,
+      "elapsed_seconds": 3.46,
+      "announce_urls": [
+        "https://tracker.nekomi.cn:443/announce"
+      ]
+    },
+    {
+      "scrape_url": "https://tracker.bt4g.com:443/scrape",
+      "http_status": 200,
+      "final_url": "https://tracker.bt4g.com:443/scrape",
+      "status": "tracker_failure",
+      "detail": "missing info_hash",
+      "bytes_read": 39,
+      "decoded_bytes": 39,
+      "elapsed_seconds": 1.2,
+      "announce_urls": [
+        "https://tracker.bt4g.com:443/announce"
+      ]
+    },
+    {
+      "scrape_url": "https://ht.therarbg.to:443/scrape",
+      "status": "unconfirmed",
+      "detail": "The read operation timed out",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 6.66,
+      "announce_urls": [
+        "https://ht.therarbg.to:443/announce"
+      ]
+    },
+    {
+      "scrape_url": "https://004430.xyz:443/scrape",
+      "http_status": 200,
+      "final_url": "https://004430.xyz:443/scrape",
+      "status": "hashes_observed",
+      "detail": "Validated one hash with scrape counters; stopped reading early",
+      "bytes_read": 1022,
+      "decoded_bytes": 1022,
+      "elapsed_seconds": 1.9,
+      "announce_urls": [
+        "https://004430.xyz:443/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://www.torrentsnipe.info:2701/scrape",
+      "status": "unconfirmed",
+      "detail": "timed out",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 6.01,
+      "announce_urls": [
+        "http://www.torrentsnipe.info:2701/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://www.genesis-sp.org:2710/scrape",
+      "status": "unconfirmed",
+      "detail": "timed out",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 6.01,
+      "announce_urls": [
+        "http://www.genesis-sp.org:2710/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://tracker810.xyz:11450/scrape",
+      "status": "unconfirmed",
+      "detail": "timed out",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 6.01,
+      "announce_urls": [
+        "http://tracker810.xyz:11450/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://tracker.zhuqiy.dgj055.icu:80/scrape",
+      "status": "unconfirmed",
+      "detail": "timed out",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 6.01,
+      "announce_urls": [
+        "http://tracker.zhuqiy.dgj055.icu:80/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://tracker.zhuqiy.com:80/scrape",
+      "http_status": 200,
+      "final_url": "https://tracker.zhuqiy.com/scrape",
+      "status": "unconfirmed",
+      "detail": "response is not a bencoded dictionary",
+      "bytes_read": 649,
+      "decoded_bytes": 2014,
+      "elapsed_seconds": 0.57,
+      "announce_urls": [
+        "http://tracker.zhuqiy.com:80/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://tracker.xiaoduola.xyz:6969/scrape",
+      "status": "unconfirmed",
+      "detail": "timed out",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 6.01,
+      "announce_urls": [
+        "http://tracker.xiaoduola.xyz:6969/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://tracker.vanitycore.co:6969/scrape",
+      "status": "unconfirmed",
+      "detail": "timed out",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 6.0,
+      "announce_urls": [
+        "http://tracker.vanitycore.co:6969/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://tracker.sbsub.com:2710/scrape",
+      "status": "unconfirmed",
+      "detail": "timed out",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 6.01,
+      "announce_urls": [
+        "http://tracker.sbsub.com:2710/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://tracker.renfei.net:8080/scrape",
+      "http_status": 200,
+      "final_url": "https://blog.renfei.net/kitbox/tracker",
+      "status": "unconfirmed",
+      "detail": "response is not a bencoded dictionary",
+      "bytes_read": 611,
+      "decoded_bytes": 1085,
+      "elapsed_seconds": 1.93,
+      "announce_urls": [
+        "http://tracker.renfei.net:8080/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://tracker.qu.ax:6969/scrape",
+      "status": "http_error",
+      "http_status": 400,
+      "detail": "HTTP Error 400: Invalid Request",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 1.25,
+      "announce_urls": [
+        "http://tracker.qu.ax:6969/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://tracker.mywaifu.best:6969/scrape",
+      "status": "http_error",
+      "http_status": 404,
+      "detail": "HTTP Error 404: Not Found",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 2.79,
+      "announce_urls": [
+        "http://tracker.mywaifu.best:6969/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://tracker.moxing.party:6969/scrape",
+      "status": "unconfirmed",
+      "detail": "timed out",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 6.01,
+      "announce_urls": [
+        "http://tracker.moxing.party:6969/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://tracker.ipv6tracker.org:80/scrape",
+      "status": "unconfirmed",
+      "detail": "timed out",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 6.01,
+      "announce_urls": [
+        "http://tracker.ipv6tracker.org:80/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://tracker.dmcomic.org:2710/scrape",
+      "status": "unconfirmed",
+      "detail": "timed out",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 6.01,
+      "announce_urls": [
+        "http://tracker.dmcomic.org:2710/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://tracker.dhitechnical.com:6969/scrape",
+      "status": "http_error",
+      "http_status": 402,
+      "detail": "HTTP Error 402: Payment Required",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 0.78,
+      "announce_urls": [
+        "http://tracker.dhitechnical.com:6969/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://tracker.bz:80/scrape",
+      "status": "unconfirmed",
+      "detail": "timed out",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 6.01,
+      "announce_urls": [
+        "http://tracker.bz:80/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://tracker.bt4g.com:2095/scrape",
+      "http_status": 200,
+      "final_url": "http://tracker.bt4g.com:2095/scrape",
+      "status": "tracker_failure",
+      "detail": "missing info_hash",
+      "bytes_read": 39,
+      "decoded_bytes": 39,
+      "elapsed_seconds": 0.57,
+      "announce_urls": [
+        "http://tracker.bt4g.com:2095/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://tracker.bt-hash.com:80/scrape",
+      "status": "unconfirmed",
+      "detail": "timed out",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 6.01,
+      "announce_urls": [
+        "http://tracker.bt-hash.com:80/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://tracker.bittor.pw:1337/scrape",
+      "status": "unconfirmed",
+      "detail": "timed out",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 6.01,
+      "announce_urls": [
+        "http://tracker.bittor.pw:1337/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://seeders-paradise.org:80/scrape",
+      "status": "unconfirmed",
+      "detail": "timed out",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 6.01,
+      "announce_urls": [
+        "http://seeders-paradise.org:80/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://home.yxgz.club:6969/scrape",
+      "status": "unconfirmed",
+      "detail": "timed out",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 6.01,
+      "announce_urls": [
+        "http://home.yxgz.club:6969/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://bittorrent-tracker.e-n-c-r-y-p-t.net:1337/scrape",
+      "http_status": 200,
+      "final_url": "http://bittorrent-tracker.e-n-c-r-y-p-t.net:1337/scrape",
+      "status": "hashes_observed",
+      "detail": "Validated one hash with scrape counters; stopped reading early",
+      "bytes_read": 8192,
+      "decoded_bytes": 26361,
+      "elapsed_seconds": 1.96,
+      "announce_urls": [
+        "http://bittorrent-tracker.e-n-c-r-y-p-t.net:1337/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://0d.kebhana.mx:443/scrape",
+      "status": "unconfirmed",
+      "detail": "timed out",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 6.0,
+      "announce_urls": [
+        "http://0d.kebhana.mx:443/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://0123456789nonexistent.com:80/scrape",
+      "status": "unconfirmed",
+      "detail": "timed out",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 6.01,
+      "announce_urls": [
+        "http://0123456789nonexistent.com:80/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://004430.xyz:80/scrape",
+      "http_status": 200,
+      "final_url": "http://004430.xyz:80/scrape",
+      "status": "hashes_observed",
+      "detail": "Validated one hash with scrape counters; stopped reading early",
+      "bytes_read": 8186,
+      "decoded_bytes": 8186,
+      "elapsed_seconds": 0.78,
+      "announce_urls": [
+        "http://004430.xyz:80/announce"
+      ]
+    },
+    {
+      "scrape_url": "https://tracker.7471.top:443/scrape",
+      "status": "http_error",
+      "http_status": 400,
+      "detail": "HTTP Error 400: Bad Request",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 0.9,
+      "announce_urls": [
+        "https://tracker.7471.top:443/announce"
+      ]
+    },
+    {
+      "scrape_url": "https://tr.nyacat.pw:443/scrape",
+      "http_status": 200,
+      "final_url": "https://tr.nyacat.pw:443/scrape",
+      "status": "tracker_failure",
+      "detail": "Invalid request: no query string",
+      "bytes_read": 56,
+      "decoded_bytes": 56,
+      "elapsed_seconds": 0.79,
+      "announce_urls": [
+        "https://tr.nyacat.pw:443/announce"
+      ]
+    },
+    {
+      "scrape_url": "https://t.213891.xyz:443/scrape",
+      "http_status": 200,
+      "final_url": "https://t.213891.xyz:443/scrape",
+      "status": "hashes_observed",
+      "detail": "Validated one hash with scrape counters; stopped reading early",
+      "bytes_read": 102,
+      "decoded_bytes": 96,
+      "elapsed_seconds": 0.33,
+      "announce_urls": [
+        "https://t.213891.xyz:443/announce"
+      ]
+    },
+    {
+      "scrape_url": "https://open.ftorrent.com:443/scrape",
+      "status": "unconfirmed",
+      "detail": "The read operation timed out",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 6.73,
+      "announce_urls": [
+        "https://open.ftorrent.com:443/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://tracker2.dler.org:80/scrape",
+      "status": "http_error",
+      "http_status": 400,
+      "detail": "HTTP Error 400: Invalid Request",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 0.69,
+      "announce_urls": [
+        "http://tracker2.dler.org:80/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://tracker.waaa.moe:6969/scrape",
+      "http_status": 200,
+      "final_url": "http://tracker.waaa.moe:6969/scrape",
+      "status": "tracker_failure",
+      "detail": "no info_hash parameter supplied",
+      "bytes_read": 53,
+      "decoded_bytes": 53,
+      "elapsed_seconds": 0.61,
+      "announce_urls": [
+        "http://tracker.waaa.moe:6969/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://tracker.privateseedbox.xyz:2710/scrape",
+      "http_status": 200,
+      "final_url": "http://tracker.privateseedbox.xyz:2710/scrape",
+      "status": "tracker_failure",
+      "detail": "scrape requires query string",
+      "bytes_read": 50,
+      "decoded_bytes": 50,
+      "elapsed_seconds": 0.79,
+      "announce_urls": [
+        "http://tracker.privateseedbox.xyz:2710/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://tracker.nexusstream.eu:6969/scrape",
+      "http_status": 200,
+      "final_url": "http://tracker.nexusstream.eu:6969/scrape",
+      "status": "tracker_failure",
+      "detail": "no info_hash parameter supplied",
+      "bytes_read": 53,
+      "decoded_bytes": 53,
+      "elapsed_seconds": 1.58,
+      "announce_urls": [
+        "http://tracker.nexusstream.eu:6969/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://tracker.dler.org:6969/scrape",
+      "status": "http_error",
+      "http_status": 400,
+      "detail": "HTTP Error 400: Invalid Request",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 0.51,
+      "announce_urls": [
+        "http://tracker.dler.org:6969/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://tracker.dler.com:6969/scrape",
+      "status": "http_error",
+      "http_status": 400,
+      "detail": "HTTP Error 400: Invalid Request",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 0.92,
+      "announce_urls": [
+        "http://tracker.dler.com:6969/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://tr.nyacat.pw:80/scrape",
+      "http_status": 200,
+      "final_url": "http://tr.nyacat.pw:80/scrape",
+      "status": "tracker_failure",
+      "detail": "Invalid request: no query string",
+      "bytes_read": 56,
+      "decoded_bytes": 56,
+      "elapsed_seconds": 0.47,
+      "announce_urls": [
+        "http://tr.nyacat.pw:80/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://torrent.hificode.in:6969/scrape",
+      "status": "unconfirmed",
+      "detail": "timed out",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 6.01,
+      "announce_urls": [
+        "http://torrent.hificode.in:6969/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://t.overflow.biz:6969/scrape",
+      "status": "http_error",
+      "http_status": 404,
+      "detail": "HTTP Error 404: Not Found",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 1.17,
+      "announce_urls": [
+        "http://t.overflow.biz:6969/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://shubt.net:2710/scrape",
+      "status": "unconfirmed",
+      "detail": "timed out",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 6.01,
+      "announce_urls": [
+        "http://shubt.net:2710/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://retracker.spark-rostov.ru:80/scrape",
+      "status": "unconfirmed",
+      "detail": "timed out",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 6.01,
+      "announce_urls": [
+        "http://retracker.spark-rostov.ru:80/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://ipv4announce.sktorrent.eu:6969/scrape",
+      "status": "http_error",
+      "http_status": 503,
+      "detail": "HTTP Error 503: Service Unavailable",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 1.87,
+      "announce_urls": [
+        "http://ipv4announce.sktorrent.eu:6969/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://bt1.xxxxbt.cc:6969/scrape",
+      "status": "unconfirmed",
+      "detail": "timed out",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 6.01,
+      "announce_urls": [
+        "http://bt1.xxxxbt.cc:6969/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://1337.abcvg.info:80/scrape",
+      "http_status": 200,
+      "final_url": "http://1337.abcvg.info:80/scrape",
+      "status": "empty_files",
+      "detail": "Empty files dictionary; enumeration not demonstrated",
+      "bytes_read": 68,
+      "decoded_bytes": 50,
+      "elapsed_seconds": 0.63,
+      "announce_urls": [
+        "http://1337.abcvg.info:80/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://107.189.2.131:1337/scrape",
+      "http_status": 200,
+      "final_url": "http://107.189.2.131:1337/scrape",
+      "status": "hashes_observed",
+      "detail": "Validated one hash with scrape counters; stopped reading early",
+      "bytes_read": 8192,
+      "decoded_bytes": 26361,
+      "elapsed_seconds": 1.8,
+      "announce_urls": [
+        "http://107.189.2.131:1337/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://207.241.226.111:6969/scrape",
+      "http_status": 200,
+      "final_url": "http://207.241.226.111:6969/scrape",
+      "status": "hashes_observed",
+      "detail": "Validated one hash with scrape counters; stopped reading early",
+      "bytes_read": 8096,
+      "decoded_bytes": 25924,
+      "elapsed_seconds": 0.65,
+      "announce_urls": [
+        "http://207.241.226.111:6969/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://207.241.231.226:6969/scrape",
+      "http_status": 200,
+      "final_url": "http://207.241.231.226:6969/scrape",
+      "status": "hashes_observed",
+      "detail": "Validated one hash with scrape counters; stopped reading early",
+      "bytes_read": 2802,
+      "decoded_bytes": 8774,
+      "elapsed_seconds": 0.69,
+      "announce_urls": [
+        "http://207.241.231.226:6969/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://announce.sktorrent.eu:6969/scrape",
+      "status": "http_error",
+      "http_status": 503,
+      "detail": "HTTP Error 503: Service Unavailable",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 0.83,
+      "announce_urls": [
+        "http://announce.sktorrent.eu:6969/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://bt1.archive.org:6969/scrape",
+      "http_status": 200,
+      "final_url": "http://bt1.archive.org:6969/scrape",
+      "status": "hashes_observed",
+      "detail": "Validated one hash with scrape counters; stopped reading early",
+      "bytes_read": 8192,
+      "decoded_bytes": 26203,
+      "elapsed_seconds": 0.78,
+      "announce_urls": [
+        "http://bt1.archive.org:6969/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://bt2.archive.org:6969/scrape",
+      "http_status": 200,
+      "final_url": "http://bt2.archive.org:6969/scrape",
+      "status": "hashes_observed",
+      "detail": "Validated one hash with scrape counters; stopped reading early",
+      "bytes_read": 4000,
+      "decoded_bytes": 12695,
+      "elapsed_seconds": 0.8,
+      "announce_urls": [
+        "http://bt2.archive.org:6969/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://nyaa.tracker.wf:7777/scrape",
+      "status": "http_error",
+      "http_status": 400,
+      "detail": "HTTP Error 400: Bad Request",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 0.95,
+      "announce_urls": [
+        "http://nyaa.tracker.wf:7777/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://retracker01-msk-virt.corbina.net:80/scrape",
+      "http_status": 200,
+      "final_url": "http://retracker01-msk-virt.corbina.net:80/scrape",
+      "status": "hashes_observed",
+      "detail": "Validated one hash with scrape counters; stopped reading early",
+      "bytes_read": 8096,
+      "decoded_bytes": 26136,
+      "elapsed_seconds": 1.75,
+      "announce_urls": [
+        "http://retracker01-msk-virt.corbina.net:80/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://torrentsmd.com:8080/scrape",
+      "status": "http_error",
+      "http_status": 403,
+      "detail": "HTTP Error 403: Forbidden",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 0.4,
+      "announce_urls": [
+        "http://torrentsmd.com:8080/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://tracker.xn--djrq4gl4hvoi.top:80/scrape",
+      "http_status": 200,
+      "final_url": "http://tracker.xn--djrq4gl4hvoi.top:80/scrape",
+      "status": "tracker_failure",
+      "detail": "no info_hash parameter supplied",
+      "bytes_read": 53,
+      "decoded_bytes": 53,
+      "elapsed_seconds": 0.96,
+      "announce_urls": [
+        "http://tracker.xn--djrq4gl4hvoi.top:80/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://tracker1.itzmx.com:8080/scrape",
+      "status": "unconfirmed",
+      "detail": "timed out",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 6.01,
+      "announce_urls": [
+        "http://tracker1.itzmx.com:8080/announce"
+      ]
+    },
+    {
+      "scrape_url": "http://www.wareztorrent.com:80/scrape",
+      "status": "http_error",
+      "http_status": 429,
+      "detail": "HTTP Error 429: Too Many Requests",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 0.57,
+      "announce_urls": [
+        "http://www.wareztorrent.com:80/announce"
+      ]
+    },
+    {
+      "scrape_url": "https://1.tracker.eu.org:443/scrape",
+      "http_status": 200,
+      "final_url": "https://1.tracker.eu.org:443/scrape",
+      "status": "no_files_dictionary",
+      "detail": "No files dictionary in response",
+      "bytes_read": 66,
+      "decoded_bytes": 57,
+      "elapsed_seconds": 1.03,
+      "announce_urls": [
+        "https://1.tracker.eu.org:443/announce"
+      ]
+    },
+    {
+      "scrape_url": "https://1337.abcvg.info:443/scrape",
+      "http_status": 200,
+      "final_url": "https://1337.abcvg.info:443/scrape",
+      "status": "empty_files",
+      "detail": "Empty files dictionary; enumeration not demonstrated",
+      "bytes_read": 68,
+      "decoded_bytes": 50,
+      "elapsed_seconds": 0.81,
+      "announce_urls": [
+        "https://1337.abcvg.info:443/announce"
+      ]
+    },
+    {
+      "scrape_url": "https://tr.abiir.top:443/scrape",
+      "status": "unconfirmed",
+      "detail": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)>",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 0.68,
+      "announce_urls": [
+        "https://tr.abiir.top:443/announce"
+      ]
+    },
+    {
+      "scrape_url": "https://tr.abir.ga:443/scrape",
+      "status": "unconfirmed",
+      "detail": "<urlopen error _ssl.c:983: The handshake operation timed out>",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 6.01,
+      "announce_urls": [
+        "https://tr.abir.ga:443/announce"
+      ]
+    },
+    {
+      "scrape_url": "https://tr.burnabyhighstar.com:443/scrape",
+      "status": "unconfirmed",
+      "detail": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'tr.burnabyhighstar.com'. (_ssl.c:1000)>",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 0.75,
+      "announce_urls": [
+        "https://tr.burnabyhighstar.com:443/announce"
+      ]
+    },
+    {
+      "scrape_url": "https://tracker.bug38.com:443/scrape",
+      "status": "unconfirmed",
+      "detail": "<urlopen error _ssl.c:983: The handshake operation timed out>",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 6.01,
+      "announce_urls": [
+        "https://tracker.bug38.com:443/announce"
+      ]
+    },
+    {
+      "scrape_url": "https://tracker.foreverpirates.co:443/scrape",
+      "http_status": 200,
+      "final_url": "https://tracker.foreverpirates.co:443/scrape",
+      "status": "no_files_dictionary",
+      "detail": "No files dictionary in response",
+      "bytes_read": 65,
+      "decoded_bytes": 56,
+      "elapsed_seconds": 2.59,
+      "announce_urls": [
+        "https://tracker.foreverpirates.co:443/announce"
+      ]
+    },
+    {
+      "scrape_url": "https://tracker.kuroy.me:443/scrape",
+      "status": "unconfirmed",
+      "detail": "The read operation timed out",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 6.26,
+      "announce_urls": [
+        "https://tracker.kuroy.me:443/announce"
+      ]
+    },
+    {
+      "scrape_url": "https://tracker.lenition.de:443/scrape",
+      "status": "http_error",
+      "http_status": 402,
+      "detail": "HTTP Error 402: Payment Required",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 2.02,
+      "announce_urls": [
+        "https://tracker.lenition.de:443/announce"
+      ]
+    },
+    {
+      "scrape_url": "https://tracker.onetracker.net:443/scrape",
+      "http_status": 200,
+      "final_url": "https://tracker.onetracker.net:443/scrape",
+      "status": "tracker_failure",
+      "detail": "Scrape not supported",
+      "bytes_read": 79,
+      "decoded_bytes": 59,
+      "elapsed_seconds": 1.14,
+      "announce_urls": [
+        "https://tracker.onetracker.net:443/announce"
+      ]
+    },
+    {
+      "scrape_url": "https://tracker.qingwapt.org:443/scrape",
+      "http_status": 200,
+      "final_url": "https://tracker.qingwapt.org:443/scrape",
+      "status": "no_files_dictionary",
+      "detail": "No files dictionary in response",
+      "bytes_read": 112,
+      "decoded_bytes": 122,
+      "elapsed_seconds": 0.79,
+      "announce_urls": [
+        "https://tracker.qingwapt.org:443/announce"
+      ]
+    },
+    {
+      "scrape_url": "https://tracker1.520.jp:443/scrape",
+      "status": "http_error",
+      "http_status": 521,
+      "detail": "HTTP Error 521: <none>",
+      "bytes_read": 0,
+      "decoded_bytes": 0,
+      "elapsed_seconds": 1.03,
+      "announce_urls": [
+        "https://tracker1.520.jp:443/announce"
+      ]
+    }
+  ],
+  "skipped": [
+    {
+      "announce_url": "udp://zer0day.ch:1337/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker.therarbg.to:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker.publictracker.xyz:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker.opentrackr.org:1337/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://open.demonii.com:1337/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://open.stealth.si:80/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker.torrent.eu.org:451/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker.qu.ax:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker.corpscorp.online:80/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker.auctor.tv:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker-udp.gbitt.info:80/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://leet-tracker.moe:1337/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://exodus.desync.com:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://bittorrent-tracker.e-n-c-r-y-p-t.net:1337/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://yuptracker-eu.gaijinent.com:27022/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker2.dler.org:80/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker.wildkat.net:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker.tryhackx.org:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker.teambelgium.net:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker.playground.ru:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker.peerfect.org:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker.opentrackr.com:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker.nexusstream.eu:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker.ilibr.org:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker.gmi.gd:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker.fnix.net:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker.farted.net:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker.ducks.party:1984/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker.dler.org:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker.ddunlimited.net:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker.bittor.pw:1337/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker.aruku.ovh:8081/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker.0x7c0.com:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tr4ck3r.duckdns.org:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://t.overflow.biz:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://seedpeer.net:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://retracker01-msk-virt.corbina.net:80/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://rekcart.duckdns.org:15480/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://open.ftorrent.com:443/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://open.demonoid.ch:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://ns575949.ip-51-222-82.net:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://martin-gebhardt.eu:25/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://mail.segso.net:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://ipv4announce.sktorrent.eu:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://explodie.org:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://evan.im:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://admin.52ywp.com:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://52.58.128.163:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://93.158.213.92:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://[2a03:7220:8083:cd00::1]:451/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://[2a04:ac00:1:3dd8::1:2710]:2710/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://ipv6.govt.hu:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://open.tracker.ink:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://opentor.org:2710/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://p4p.arenabg.com:1337/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://retracker.hotplug.ru:2710/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://torrent.tracker.durukanbal.com:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tr3.ysagin.top:2715/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker.breizh.pm:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker.cn.nyaa.net:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker.dler.com:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker.filemail.com:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker.govt.hu:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker.k.vu:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker.nyaa.net:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker.orsvarn.com:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker.skyts.net:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker1.itzmx.com:8080/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker2.itzmx.com:6961/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker3.itzmx.com:6961/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://tracker4.itzmx.com:2710/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://v6.vito-tracker.space:6969/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "udp://whybother.torrentonline.cc:42069/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    },
+    {
+      "announce_url": "wss://tracker.openwebtorrent.com:443/announce",
+      "reason": "No standard HTTP full-scrape mapping"
+    }
+  ]
+}

@@ -11,6 +11,7 @@ These guides explain the implementation at repository revision `e31b30d`, inspec
 3. [Metadata exchange](03-metadata-exchange.md): follow the TCP handshake and extension messages down to their byte layout.
 4. [Application, persistence, and search](04-application-and-storage.md): connect network discovery to transactions, queue jobs, classification, GraphQL, and magnets.
 5. [Hands-on study and troubleshooting](05-hands-on.md): inspect a bundled torrent offline, navigate source, and diagnose each pipeline stage.
+6. [Fetching public tracker lists](06-tracker-lists.md): merge tracker URLs and understand why they cannot be imported as torrent records.
 
 ## End-to-end map
 
