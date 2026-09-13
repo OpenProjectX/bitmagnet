@@ -15,6 +15,8 @@ These guides explain the implementation at repository revision `e31b30d`, inspec
 
 7. [Native tracker integration](07-tracker-integration.md): configure the optional worker, understand its limits, and operate its durable pipeline.
 
+8. [Publishing OpenProjectX images](08-image-publishing.md): GHCR workflow, tags, and repository setup.
+
 ## Design proposals
 
 - [RFC 0001: Tracker-assisted discovery and metadata resolution](rfcs/0001-tracker-assisted-discovery.md) — draft evaluation, architecture, rollout, and acceptance criteria.
