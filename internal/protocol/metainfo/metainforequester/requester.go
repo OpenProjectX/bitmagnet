@@ -92,6 +92,8 @@ func (r requester) Request(ctx context.Context, infoHash protocol.ID, addr netip
 		return Response{}, connErr
 	}
 
+	stopCancel := context.AfterFunc(timeoutCtx, func() { _ = conn.Close() })
+	defer stopCancel()
 	defer func() {
 		_ = conn.Close()
 	}()
@@ -172,7 +174,7 @@ func btHandshake(rw io.ReadWriter, infoHash protocol.ID, clientID protocol.ID) (
 	if n, hsErr := rw.Write(handshakeBytes); hsErr != nil {
 		return HandshakeInfo{}, hsErr
 	} else if n != 68 {
-		panic("handshake bytes must have length 68")
+		return HandshakeInfo{}, io.ErrShortWrite
 	}
 
 	handshakeResponse := make([]byte, 68)
@@ -228,7 +230,7 @@ type extDict struct {
 const maxMetadataSize = 10 * 1024 * 1024
 
 func exHandshake(rw io.ReadWriter) (metadataSize uint, utMetadata uint8, err error) {
-	if _, writeErr := rw.Write([]byte("\x00\x00\x00\x1a\x14\x00d1:md11:ut_metadatai1eee")); err != nil {
+	if _, writeErr := rw.Write([]byte("\x00\x00\x00\x1a\x14\x00d1:md11:ut_metadatai1eee")); writeErr != nil {
 		err = writeErr
 		return
 	}
@@ -294,58 +296,65 @@ func uintToBigEndian4(i uint) []byte {
 }
 
 func readAllPieces(r io.Reader, metadataSize uint) ([]byte, error) {
-	metadataBytes := make([]byte, metadataSize)
+	const blockSize = 16 * 1024
 
-	receivedSize := uint(0)
-	for receivedSize < metadataSize {
-		rUmMessage, err := readUmMessage(r)
+	if metadataSize == 0 || metadataSize >= maxMetadataSize {
+		return nil, errors.New("invalid metadata size")
+	}
+	metadataBytes := make([]byte, metadataSize)
+	count := (int(metadataSize) + blockSize - 1) / blockSize
+	received := make([]bool, count)
+	remaining := count
+	// Bound duplicate/irrelevant metadata messages independently of the socket deadline.
+	for messages := 0; remaining > 0; messages++ {
+		if messages >= count*4+16 {
+			return nil, errors.New("too many metadata messages")
+		}
+
+		message, err := readUmMessage(r)
 		if err != nil {
 			return nil, err
 		}
-		// run TestDecoder() function in leech_test.go in case you have any doubts.
-		rMessageBuf := bytes.NewBuffer(rUmMessage[2:])
-		rExtDict := new(extDict)
 
-		if decodeErr := bencode.NewDecoder(rMessageBuf).Decode(rExtDict); decodeErr != nil {
-			return nil, decodeErr
+		buf := bytes.NewBuffer(message[2:])
+		header := extDict{Piece: -1, MsgType: -1}
+
+		if err := bencode.NewDecoder(buf).Decode(&header); err != nil {
+			return nil, err
 		}
 
-		if rExtDict.MsgType == 2 { // reject
-			return nil, errors.New("remote peer rejected sending metadataBytes")
+		if header.MsgType == 2 {
+			return nil, errors.New("remote peer rejected metadata")
 		}
 
-		if rExtDict.MsgType == 1 { // data
-			// Get the unread bytes!
-			metadataPiece := rMessageBuf.Bytes()
-			// BEP 9 explicitly states:
-			//   > If the piece is the last piece of the metadata, it may be less than 16kiB. If
-			//   > it is not the last piece of the metadata, it MUST be 16kiB.
-			//
-			// Hence...
-			//   ... if the length of metadataPiece is more than 16kiB, we err.
-			if len(metadataPiece) > 16*1024 {
-				return nil, errors.New("metadataPiece > 16kiB")
-			}
-
-			receivedSize += uint(len(metadataPiece))
-			// ... if the length of @metadataPiece is less than 16kiB AND metadataBytes is NOT
-			// complete then we err.
-			if len(metadataPiece) < 16*1024 && receivedSize != metadataSize {
-				return nil, errors.New("metadataPiece < 16 kiB but incomplete")
-			}
-
-			if receivedSize > metadataSize {
-				return nil, errors.New("receivedSize > metadataSize")
-			}
-
-			piece := rExtDict.Piece
-			copy(
-				metadataBytes[piece*int(math.Pow(2, 14)):piece*int(math.Pow(2, 14))+len(metadataPiece)],
-				metadataPiece,
-			)
+		if header.MsgType != 1 {
+			continue
 		}
+
+		if header.Piece < 0 || header.Piece >= count {
+			return nil, errors.New("invalid metadata piece index")
+		}
+
+		offset := header.Piece * blockSize
+
+		expected := min(blockSize, len(metadataBytes)-offset)
+		if buf.Len() != expected {
+			return nil, errors.New("invalid metadata piece length")
+		}
+
+		if received[header.Piece] {
+			if !bytes.Equal(metadataBytes[offset:offset+expected], buf.Bytes()) {
+				return nil, errors.New("conflicting duplicate metadata piece")
+			}
+
+			continue
+		}
+
+		copy(metadataBytes[offset:offset+expected], buf.Bytes())
+
+		received[header.Piece] = true
+		remaining--
 	}
-
 	return metadataBytes, nil
 }
 

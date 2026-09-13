@@ -45,6 +45,31 @@ jobs:
         run: |
           nix develop --ignore-environment --keep HOME . --command task test
 
+  tracker-integration:
+    runs-on: ubuntu-22.04
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: bitmagnet_test
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+      - name: Test tracker ingestion and metadata exchange
+        run: go test -race ./internal/tracker/... ./internal/trackercrawler/... ./internal/protocol/metainfo/...
+        env:
+          BITMAGNET_TEST_POSTGRES: host=127.0.0.1 port=5432 user=postgres password=postgres dbname=bitmagnet_test sslmode=disable
+
   # This job runs all code generations and builds the WebUI, to check that everything is correctly committed
   generated:
     runs-on: ubuntu-22.04

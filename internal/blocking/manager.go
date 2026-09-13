@@ -67,7 +67,7 @@ func (m *manager) Block(ctx context.Context, hashes []protocol.ID, flush bool) e
 		m.buffer[hash] = struct{}{}
 	}
 
-	if flush || m.shouldFlush() {
+	if len(m.buffer) > 0 {
 		if flushErr := m.flush(ctx); flushErr != nil {
 			return flushErr
 		}
@@ -107,6 +107,18 @@ func (m *manager) flush(ctx context.Context) error {
 		_, err = tx.Exec(ctx, "DELETE FROM torrents WHERE info_hash = any($1)", hashes)
 		if err != nil {
 			return fmt.Errorf("failed to delete from torrents table: %w", err)
+		}
+	}
+
+	if len(hashes) > 0 {
+		_, err = tx.Exec(
+			ctx,
+			`INSERT INTO torrent_discovery_tombstones(info_hash) SELECT unnest($1::bytea[]) ON
+CONFLICT(info_hash) DO UPDATE SET deleted_at=now()`,
+			hashes,
+		)
+		if err != nil {
+			return fmt.Errorf("failed to persist discovery tombstones: %w", err)
 		}
 	}
 

@@ -2,6 +2,11 @@
 
 [Documentation index](README.md)
 
+**Implementation update:** this guide records the earlier evaluation. The new
+[optional native tracker worker](07-tracker-integration.md) now implements
+HTTP(S) full-scrape discovery and peer metadata retrieval. Tracker URLs still
+cannot be submitted to `/import`; configure the new worker explicitly instead.
+
 The [ngosang list](https://github.com/ngosang/trackerslist) and
 [XIU2 collection](https://github.com/XIU2/TrackersListCollection) publish tracker
 announce URLs. They do not provide torrent catalogs containing info hashes,
@@ -83,7 +88,7 @@ submitted to the deployed Bitmagnet instance by this task.
 Some HTTP trackers expose a **full scrape**: a scrape request without an
 `info_hash` parameter returns hash keys and swarm statistics. Opentracker
 implements this feature and allows operators to disable it. Thus the claim
-that trackers can *never* supply unknown hashes is incorrect. Support depends
+that trackers can _never_ supply unknown hashes is incorrect. Support depends
 on the tracker implementation and deployment; see the
 [opentracker documentation](https://erdgeist.org/arts/software/opentracker/).
 
@@ -93,13 +98,13 @@ hashes to counters such as `complete`, `incomplete`, and `downloaded`. These are
 paths, lengths, and payload piece hashes. See
 [BEP 48](https://www.bittorrent.org/beps/bep_0048.html).
 
-| Mechanism | Requires a known torrent hash? | Returns |
-| --- | --- | --- |
-| DHT `sample_infohashes` (BEP 51) | No | A sample of stored hashes and routing contacts |
-| Tracker announce | Yes | Peer contacts |
-| Ordinary tracker scrape | Yes | Statistics for supplied hashes |
-| HTTP full scrape, when exposed | No | Tracked hash keys and statistics |
-| Peer `ut_metadata` exchange | Yes | The torrent info dictionary |
+| Mechanism                        | Requires a known torrent hash? | Returns                                        |
+| -------------------------------- | ------------------------------ | ---------------------------------------------- |
+| DHT `sample_infohashes` (BEP 51) | No                             | A sample of stored hashes and routing contacts |
+| Tracker announce                 | Yes                            | Peer contacts                                  |
+| Ordinary tracker scrape          | Yes                            | Statistics for supplied hashes                 |
+| HTTP full scrape, when exposed   | No                             | Tracked hash keys and statistics               |
+| Peer `ut_metadata` exchange      | Yes                            | The torrent info dictionary                    |
 
 The current Bitmagnet crawler gets new hashes in
 [`runSampleInfoHashes`](../internal/dhtcrawler/sample_infohashes.go), deduplicates

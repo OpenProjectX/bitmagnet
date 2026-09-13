@@ -21,13 +21,13 @@ A successful DHT UDP query does not prove this TCP connection will work: it may 
 
 The outgoing handshake is 68 bytes. The repository builds it using the anacrolix `peer_protocol.Protocol` prefix, extension flags, requested info hash, and local client ID.
 
-| Byte offset | Length | Value |
-| --- | ---: | --- |
-| 0 | 1 | Protocol string length, 19 |
-| 1 | 19 | `BitTorrent protocol` |
-| 20 | 8 | Reserved extension bits |
-| 28 | 20 | Raw requested info hash |
-| 48 | 20 | Local peer ID |
+| Byte offset | Length | Value                      |
+| ----------- | -----: | -------------------------- |
+| 0           |      1 | Protocol string length, 19 |
+| 1           |     19 | `BitTorrent protocol`      |
+| 20          |      8 | Reserved extension bits    |
+| 28          |     20 | Raw requested info hash    |
+| 48          |     20 | Local peer ID              |
 
 This is the base handshake format from [BEP 3](https://www.bittorrent.org/beps/bep_0003.html). The requester advertises DHT and extension-protocol bits. `btHandshake` then uses `io.ReadFull` to read 68 response bytes, validates the prefix, requires extension support, compares the returned hash, and extracts the remote peer ID.
 
@@ -46,13 +46,13 @@ d1:md11:ut_metadatai1eee
 Decoded:
 
 ```json
-{"m": {"ut_metadata": 1}}
+{ "m": { "ut_metadata": 1 } }
 ```
 
 The peer might answer with:
 
 ```json
-{"m": {"ut_metadata": 3}, "metadata_size": 40000}
+{ "m": { "ut_metadata": 3 }, "metadata_size": 40000 }
 ```
 
 These are separate directional assignments. Bitmagnet sends metadata requests using the peer's advertised ID, 3 in this example. The peer sends metadata messages to Bitmagnet using ID 1, which Bitmagnet advertised. This explains why `requestAllPieces` accepts a negotiated ID while `readUmMessage` looks for `0x01`.
@@ -123,6 +123,11 @@ This is a successful path. Timeouts, rejection, unsupported extensions, invalid 
 After parsing, the crawler runs the configured [banning checker](../internal/protocol/metainfo/banning/checker.go). The checker implementations cover text validity, minimum name length, and minimum total size. If a check rejects metadata, the crawler attempts to block the hash and ends that hash's attempt instead of continuing to another peer.
 
 ## 7. Implementation limitations worth studying
+
+The observations below describe the original inspected revision. The tracker
+integration subsequently fixed block-index bounds, duplicate accounting,
+out-of-order final blocks, and the extension-handshake write-error check.
+See [the implementation guide](07-tracker-integration.md) for current behavior.
 
 These observations are from source inspection, not a claim that malformed-peer scenarios were reproduced:
 

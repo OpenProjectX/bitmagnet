@@ -13,6 +13,12 @@ These guides explain the implementation at repository revision `e31b30d`, inspec
 5. [Hands-on study and troubleshooting](05-hands-on.md): inspect a bundled torrent offline, navigate source, and diagnose each pipeline stage.
 6. [Fetching public tracker lists](06-tracker-lists.md): merge tracker URLs and understand why they cannot be imported as torrent records.
 
+7. [Native tracker integration](07-tracker-integration.md): configure the optional worker, understand its limits, and operate its durable pipeline.
+
+## Design proposals
+
+- [RFC 0001: Tracker-assisted discovery and metadata resolution](rfcs/0001-tracker-assisted-discovery.md) — draft evaluation, architecture, rollout, and acceptance criteria.
+
 ## End-to-end map
 
 ```mermaid
@@ -41,18 +47,18 @@ The DHT stores peer contact information, not a global title index. Bitmagnet bui
 
 ## Repository map
 
-| Area | Responsibility |
-| --- | --- |
-| [main.go](../main.go), [internal/app](../internal/app) | Application entry, dependency wiring, CLI commands |
-| [internal/dhtcrawler](../internal/dhtcrawler) | Concurrent discovery and persistence pipeline |
-| [internal/protocol/dht](../internal/protocol/dht) | UDP messages, client, responder, routing and peer tables |
-| [internal/protocol/metainfo](../internal/protocol/metainfo) | Torrent parsing, metadata retrieval, filtering |
-| [internal/queue](../internal/queue), [internal/processor](../internal/processor) | Durable jobs and torrent processing |
-| [internal/classifier](../internal/classifier) | Workflows, title parsing, content matching |
-| [internal/model](../internal/model), [internal/database](../internal/database), [migrations](../migrations) | Models, queries, schema evolution |
-| [internal/gql](../internal/gql), [graphql/schema](../graphql/schema) | GraphQL API and schema |
-| [internal/torznab](../internal/torznab), [internal/importer](../internal/importer) | Indexer integration and alternate ingestion |
-| [webui/src/app](../webui/src/app) | Angular frontend |
-| [observability](../observability) | Dashboard and monitoring configuration |
+| Area                                                                                                        | Responsibility                                           |
+| ----------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| [main.go](../main.go), [internal/app](../internal/app)                                                      | Application entry, dependency wiring, CLI commands       |
+| [internal/dhtcrawler](../internal/dhtcrawler)                                                               | Concurrent discovery and persistence pipeline            |
+| [internal/protocol/dht](../internal/protocol/dht)                                                           | UDP messages, client, responder, routing and peer tables |
+| [internal/protocol/metainfo](../internal/protocol/metainfo)                                                 | Torrent parsing, metadata retrieval, filtering           |
+| [internal/queue](../internal/queue), [internal/processor](../internal/processor)                            | Durable jobs and torrent processing                      |
+| [internal/classifier](../internal/classifier)                                                               | Workflows, title parsing, content matching               |
+| [internal/model](../internal/model), [internal/database](../internal/database), [migrations](../migrations) | Models, queries, schema evolution                        |
+| [internal/gql](../internal/gql), [graphql/schema](../graphql/schema)                                        | GraphQL API and schema                                   |
+| [internal/torznab](../internal/torznab), [internal/importer](../internal/importer)                          | Indexer integration and alternate ingestion              |
+| [webui/src/app](../webui/src/app)                                                                           | Angular frontend                                         |
+| [observability](../observability)                                                                           | Dashboard and monitoring configuration                   |
 
 For a focused first pass, read `crawler.go`, `sample_infohashes.go`, `get_peers.go`, the metadata `requester.go`, and crawler `persist.go`, in that order.
