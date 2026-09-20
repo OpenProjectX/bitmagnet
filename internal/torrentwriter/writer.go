@@ -64,8 +64,9 @@ func Write(
 
 	var accepted []protocol.ID
 
-	err = db.Session(&gorm.Session{NewDB: true}).
-		WithContext(ctx).
+	// Set Context in the same Session as NewDB. A subsequent WithContext call
+	// changes GORM's clone mode and preserves the caller's model/table scope.
+	err = db.Session(&gorm.Session{NewDB: true, Context: ctx}).
 		Transaction(func(tx *gorm.DB) error {
 			if err := tx.Exec("SELECT pg_advisory_xact_lock(72619401)").Error; err != nil {
 				return err

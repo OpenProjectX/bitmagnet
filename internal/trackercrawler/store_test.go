@@ -11,6 +11,7 @@ import (
 
 	"github.com/anacrolix/torrent/bencode"
 	ami "github.com/anacrolix/torrent/metainfo"
+	"github.com/bitmagnet-io/bitmagnet/internal/database/dao"
 	"github.com/bitmagnet-io/bitmagnet/internal/model"
 	"github.com/bitmagnet-io/bitmagnet/internal/protocol"
 	"github.com/bitmagnet-io/bitmagnet/internal/protocol/metainfo/banning"
@@ -281,9 +282,14 @@ func TestPostgresIntegration(t *testing.T) {
 
 			in := fifth
 			in.Source = source
+			writerDB := db
+			if source == "dht" {
+				// Match the production DHT call: this handle carries a Torrent model/table.
+				writerDB = dao.Use(db).Torrent.WithContext(ctx).UnderlyingDB()
+			}
 			_, e := torrentwriter.Write(
 				ctx,
-				db,
+				writerDB,
 				allowOne{},
 				[]torrentwriter.Input{in},
 				torrentwriter.Options{SaveFilesThreshold: 2},
